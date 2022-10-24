@@ -3,6 +3,7 @@ import { parseCookies, setCookie } from 'nookies'
 
 let cookies = parseCookies();
 let isRefreshing = false;
+// @ts-ignore
 let failedRequestsQueue = [];
 
 export const api = axios.create({
@@ -43,9 +44,11 @@ api.interceptors.response.use(response => {
 
           api.defaults.headers['Authorization'] = `Bearer ${token}`;
 
+          // @ts-ignore
           failedRequestsQueue.forEach(request => request.onSuccess(token))
           failedRequestsQueue = [];
         }).catch(err => {
+          // @ts-ignore
           failedRequestsQueue.forEach(request => request.onFailure(err))
           failedRequestsQueue = [];
         }).finally(() => {
@@ -56,8 +59,10 @@ api.interceptors.response.use(response => {
       return new Promise((resolve, reject) => {
         failedRequestsQueue.push({
           onSuccess: (token: string) => {
+            // @ts-ignore
             originalConfig.headers['Authorization'] = `Bearer ${token}`
 
+            // @ts-ignore
             resolve(api(originalConfig))
           },
           onFailure: (err: AxiosError) => {
