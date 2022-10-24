@@ -40,8 +40,6 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
   useEffect(() => {
     const { 'nextauth.token': token } = parseCookies()
-    console.log('token ctx', token)
-
 
     if (token) {
       api.get('/me').then(response => {
@@ -80,7 +78,8 @@ export function AuthProvider({ children }: AuthProviderProps) {
         roles,
       })
 
-      api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+      // @ts-ignore
+      api.defaults.headers['Authorization'] = `Bearer ${token}`;
 
       Router.push('/dashboard')
 
