@@ -3,19 +3,18 @@ import { parseCookies, setCookie } from 'nookies'
 
 let cookies = parseCookies();
 let isRefreshing = false;
-// @ts-ignore
-let failedRequestsQueue = [];
+let failedRequestsQueue: any[] = [];
 
 export const api = axios.create({
   baseURL: 'http://localhost:3333',
   headers: {
     Authorization: `Bearer ${cookies['nextauth.token']}`
   }
-});
+})
+
 api.interceptors.response.use(response => {
   return response;
 }, (error: AxiosError) => {
-  // @ts-ignore
   if (error.response?.status === 401) {
     // @ts-ignore
     if (error.response.data?.code === 'token.expired') {
@@ -30,6 +29,7 @@ api.interceptors.response.use(response => {
         api.post('/refresh', {
           refreshToken,
         }).then(response => {
+          console.log('rep', response)
           const { token } = response.data;
 
           setCookie(undefined, 'nextauth.token', token, {
@@ -42,13 +42,9 @@ api.interceptors.response.use(response => {
             path: '/'
           })
 
-          api.defaults.headers['Authorization'] = `Bearer ${token}`;
-
-          // @ts-ignore
           failedRequestsQueue.forEach(request => request.onSuccess(token))
           failedRequestsQueue = [];
         }).catch(err => {
-          // @ts-ignore
           failedRequestsQueue.forEach(request => request.onFailure(err))
           failedRequestsQueue = [];
         }).finally(() => {
@@ -59,15 +55,15 @@ api.interceptors.response.use(response => {
       return new Promise((resolve, reject) => {
         failedRequestsQueue.push({
           onSuccess: (token: string) => {
-            // @ts-ignore
+            if (!originalConfig?.headers) {
+              return // If there is no originalConfig, then the request was already cancelled
+            }
             originalConfig.headers['Authorization'] = `Bearer ${token}`
-
-            // @ts-ignore
             resolve(api(originalConfig))
           },
           onFailure: (err: AxiosError) => {
             reject(err)
-          } 
+          }
         })
       });
     } else {
