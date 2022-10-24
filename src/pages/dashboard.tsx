@@ -8,6 +8,7 @@ export default function Deshboard() {
   useEffect(() => {
     api.get('/me')
       .then(response => console.log(response))
+      .catch(error => console.log(error))
   }, [])
 
   return <h1>Dashboard: {user?.email}</h1>
