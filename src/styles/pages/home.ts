@@ -1,10 +1,6 @@
 import { styled } from "..";
 
-function pixelToRem(...values: number[]) {
-  return values
-    .reduce((acc, current) => (acc += current / 20 + `rem `), "")
-    .trim();
-}
+import { pixelToRem } from '../../utils/pixelTorem'
 
 export const FormCotainer = styled('form', {
  minHeight: '100vh',

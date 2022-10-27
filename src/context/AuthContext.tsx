@@ -81,7 +81,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
       // @ts-ignore
       api.defaults.headers['Authorization'] = `Bearer ${token}`;
 
-      Router.push('/dashboard')
+      Router.push('/cars')
 
     } catch (err) {
       console.log(err)
