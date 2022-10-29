@@ -31,8 +31,11 @@ export default function Car() {
     <ProductContainer>
       {cars.filter(item => item.id === id).map(car => (
         <>
+
           <ProductDetails>
-            <Image src={car.imgUrl} alt="" width={200} height={106} />
+            <ImageContainer>
+              <Image src={car.imgUrl} alt="" layout="fill" />
+            </ImageContainer>
             <h1 key={car.id}>{car.name}</h1>
             <span>{car.marca}</span>
             <p>{formatCurrency(car.price)}</p>

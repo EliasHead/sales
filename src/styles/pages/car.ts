@@ -12,30 +12,22 @@ export const ProductContainer = styled('main', {
 })
 
 export const ImageContainer = styled('div', {
-  width: '100%',
-  maxWidth: 576,
-  height: 400,
-  background: '$gray800',
+  width: '90%',
+  position: 'sticky',
+  maxWidth: 350,
+  height: 213,
   borderRadius: 8,
   padding: '0.25rem',
-  marginTop: 100,
-
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-
-  img: {
-    objectFit: 'cover'
-  }
-
+  margin: 'auto',
+  objectFit: 'cover'
 })
 
 export const ProductDetails = styled('div', {
+  width: '100%',
   display: 'flex',
   flexDirection: 'column',
-  // justifyContent: 'space-around',
   height: 400,
-  width: 600,
+  maxWidth: 600,
   margin: '100px auto 0',
   borderRadius: 8,
 
@@ -44,7 +36,6 @@ export const ProductDetails = styled('div', {
   h1: {
     fontSize: '$2xl',
     color: '$gray300',
-    marginTop: '5rem',
     alignSelf: 'center'
   },
 
@@ -74,7 +65,9 @@ export const ProductDetails = styled('div', {
     cursor: 'pointer',
     fontWeight: 'bold',
     fontSize: '$md',
-    margin: '0 4rem',
+    marginLeft: 80,
+    marginRight: 80,
+    marginBottom: 20,
 
     '&:disabled': {
       opacity: 0.6,
@@ -85,4 +78,8 @@ export const ProductDetails = styled('div', {
       backgroundColor: '$green300',
     }
   },
+
+  '@bo1': {
+    margin: 'auto',
+  }
 })

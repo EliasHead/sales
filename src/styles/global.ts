@@ -13,14 +13,14 @@ export const globalStyles = globalCss({
   },
 
   body: {
-  backgroundColor: '$gray900',
-  height: '100vh',
-  color: '$gray100',
-  '-webkit-font-smoothing': 'antialiased',
-},
+    backgroundColor: '$gray900',
+    height: '100vh',
+    color: '$gray100',
+    '-webkit-font-smoothing': 'antialiased',
+  },
 
   'body, input, textarea, button': {
-  fontFamily: 'Roboto',
-  fontWeight: 400,
-}
+    fontFamily: 'Roboto',
+    fontWeight: 400,
+  }
 })

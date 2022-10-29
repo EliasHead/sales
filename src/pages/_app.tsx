@@ -11,7 +11,8 @@ export default function App({ Component, pageProps }: AppProps) {
     <AuthProvider>
       <CarProvider>
         <Head>
-          <meta name="viewport" content="viewport-fit=cover" />
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+          {/* <meta name="viewport" content="viewport-fit=cover" /> */}
         </Head>
         <Component {...pageProps} />
       </CarProvider>

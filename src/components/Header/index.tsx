@@ -1,10 +1,11 @@
-import { HeaderBox, HeaderTag, HeaderUl, ImageBox } from "./styles";
+import { HeaderBox, HeaderTag, HeaderUl, ImageBox, IsMobile } from "./styles";
 
 import Image from "next/image";
-import { Car } from "phosphor-react";
+import { List } from "phosphor-react";
 
+//@ts-ignore
+export default function Header({ handleSetMenuIsVisible }) {
 
-export default function Header() {
   return (
     <HeaderTag>
       <HeaderBox>
@@ -35,6 +36,9 @@ export default function Header() {
         </nav>
 
       </HeaderBox>
+      <IsMobile>
+        <List size={32} color="#ffffff" onClick={() => handleSetMenuIsVisible()} />
+      </IsMobile>
     </HeaderTag>
   )
 }

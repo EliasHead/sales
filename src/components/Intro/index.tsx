@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Introbox, IntroContainer } from "./styles";
+import { ImgContainer, Introbox, IntroContainer } from "./styles";
 
 export function Intro() {
   return (
@@ -7,18 +7,17 @@ export function Intro() {
       <Introbox>
         <div>
           <h2>
-            As melhores tecnologias em programação, direto ao ponto e do jeito certo.
+            As melhores ofertas da cidade, com planos personalizados para voocê.
           </h2>
           <p>
-            No meio de tanta informação e da quantidade de ferramentas que
-            surgem todos os dias, você precisa de alguém que te leve na direção certa.
+            Benefícios exclusivos, experiências únicas&nbsp;e as melhores vantagens para você viver&nbsp;uma história de amor com o seu carro...
           </p>
         </div>
-        <div>
-          <Image className="img" src="/melhores-tecnologias.svg" alt="" width={362} height={427} />
-        </div>
+        <ImgContainer>
+          <Image className="img" src="/capa.png" alt="" width={400} height={213} />
+        </ImgContainer>
       </Introbox>
-      
+
     </IntroContainer>
   )
 }

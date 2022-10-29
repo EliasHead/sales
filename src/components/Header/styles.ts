@@ -2,6 +2,8 @@ import { styled } from '../../styles/index';
 
 export const HeaderTag = styled('header', {
   backgroundColor: '#7159c1',
+
+  
 })
 
 export const HeaderBox = styled('div', {
@@ -13,6 +15,10 @@ export const HeaderBox = styled('div', {
   maxWidth: '980px',
 
   margin: 'auto',
+
+  '@bp1': {
+    display: 'none'
+  }
 
 })
 
@@ -42,31 +48,12 @@ export const HeaderUl = styled('ul', {
   }
 })
 
-// h2 {
-//   color: rgb(75, 75, 75);
-//   font-size: 3.6rem;
-//   line-height: 4.6rem;
-// }
+export const IsMobile = styled('section', {
+  display: 'flex',
+  justifyContent: 'right',
+  paddingRight: '20px',
 
-// h3 {
-//   color: rgb(75, 75, 75);
-//   font-size: 2.8rem;
-//   line-height: 3.8rem;
-// }
-
-// .button {
-//   display: inline-block;
-//   font-size: 1.6rem;
-//   font-weight: 600;
-//   color: rgb(255, 255, 255);
-//   background-color: rgb(113, 89, 193);
-//   margin: 15px 0px 0px;
-//   padding: 12px 30px;
-//   text-decoration: none;
-//   border-radius: 5px;
-//   transition: all 150ms linear 0s;
-// }
-
-// .button:hover {
-//   opacity: 0.9;
-// }
+  '@bp4': {
+    display: 'none'
+  },
+})

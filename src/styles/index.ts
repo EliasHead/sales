@@ -27,6 +27,12 @@ export const {
       lg: '1.25rem',
       xl: '1.5rem',
       '2xl': '2rem',
-    }
-  }
+    },
+  },
+  media: {
+    bp1: "screen and (max-width: 768px)",
+    bp2: "screen and (max-width: 640px)",
+    bp3: "screen and (max-width: 540px)",
+    bp4: "screen and (min-width: 1024px)",
+  },
 })
