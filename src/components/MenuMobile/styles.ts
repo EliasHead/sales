@@ -14,16 +14,16 @@ export const Container = styled('section', {
   justifyContent: 'center',
   backdropFilter: 'blur(3px)',
 
-  background: 'red',
+  background: '$gray900',
   // background: 'linear-gradient(34deg, rgba(25,88,24,0.95) 0%, rgba(17,18,17,0.95) 95%)',
 
   variants: {
-    isVisible:{
+    isVisible: {
       true: {
         opacity: 1,
         pointerEvents: 'auto',
         transform: 'translateY(0px)',
-    
+
         '> svg': {
           transform: 'rotate(0deg)',
         },
@@ -48,15 +48,15 @@ export const Container = styled('section', {
     transform: 'rotate(45deg)',
     transition: '.7s',
   },
-
-  nav: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    flexDirection: 'column',
-    gap: '2rem',
-    transform: 'scale(0.7)',
-    transition: '0.7s',
-  },
 })
-  
+
+export const NavContainer = styled('nav', {
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  flexDirection: 'column',
+  gap: '2rem',
+  transform: 'scale(0.7)',
+  transition: '0.7s',
+  fontSize: '2.4rem',
+})

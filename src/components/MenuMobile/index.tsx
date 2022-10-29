@@ -1,7 +1,7 @@
-import { Container } from './styles';
-// import { IoClose } from 'react-icons/io5';
+import { Container, NavContainer } from './styles';
 import { useEffect } from 'react';
 import { X } from 'phosphor-react';
+import Link from 'next/link'
 
 //@ts-ignore
 export function MenuMobile({ menuIsVisible, setMenuIsVisible }) {
@@ -13,13 +13,12 @@ export function MenuMobile({ menuIsVisible, setMenuIsVisible }) {
     //@ts-ignore
     <Container isVisible={menuIsVisible}>
       <X size={45} color="white" onClick={() => setMenuIsVisible(false)}/>
-      {/* <IoClose size={45} onClick={() => setMenuIsVisible(false)}/> */}
-      <nav>
-        <a href="#">Home</a>
-        <a href="#">Produtos</a>
-        <a href="#">Sobre nós</a>
-        <a href="#">Contato</a>
-      </nav>
+      <NavContainer>
+        <Link href="#">Home</Link>
+        <Link href="#">Produtos</Link>
+        <Link href="#">Sobre nós</Link>
+        <Link href="#">Contato</Link>
+      </NavContainer>
     </Container>
   )
 }

@@ -22,5 +22,10 @@ export const globalStyles = globalCss({
   'body, input, textarea, button': {
     fontFamily: 'Roboto',
     fontWeight: 400,
+  },
+
+  a: {
+    color: 'inherit',
+    textDecoration: 'none',
   }
 })

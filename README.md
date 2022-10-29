@@ -1,34 +1,53 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
 
-First, run the development server:
+## Projeto Cars Shop
+
+Formas de testar
 
 ```bash
-npm run dev
-# or
+# rodar o servidor next
+yarn dev
+# rodar uma fake api onde e buscado os dados do carros
+yarn dev:server
+```
+
+## Para autenticação precisa rodar um projeto back-and
+Github -> [back-end](https://github.com/rocketseat-education/ignite-reactjs-next-auth-jwt)
+
+```bash
+# rodar o servidor back-end
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### user: diego@rocketseat.team
+### senha: 123456
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+### user: estagiario@rocketseat.team
+### senha: 123456
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## Tecnologias utilizadas
+![Next JS](https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white)
+![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+* CSS in Js com [Stitches](https://stitches.dev/)
+* UI components [Radix](https://www.radix-ui.com/)
 
-## Learn More
+Projeto:
 
-To learn more about Next.js, take a look at the following resources:
+features implementadas:
+* login
+* autenticação jwt
+* toke refresh
+* rotas dinamicas
+* contextApi react
+* api fake json server
+* requisções http com axios
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+features a ser implemtadas:
+* cadastro de usuarios
+* SSR
+* cadastro de vendas
+* date piker pra salvar data
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.

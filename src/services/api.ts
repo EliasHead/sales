@@ -30,7 +30,6 @@ api.interceptors.response.use(response => {
         api.post('/refresh', {
           refreshToken,
         }).then(response => {
-          console.log('rep', response)
           const { token } = response.data;
 
           setCookie(undefined, 'nextauth.token', token, {

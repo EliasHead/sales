@@ -2,6 +2,7 @@ import { HeaderBox, HeaderTag, HeaderUl, ImageBox, IsMobile } from "./styles";
 
 import Image from "next/image";
 import { List } from "phosphor-react";
+import Link from 'next/link'
 
 //@ts-ignore
 export default function Header({ handleSetMenuIsVisible }) {
@@ -21,17 +22,15 @@ export default function Header({ handleSetMenuIsVisible }) {
         <nav>
           <HeaderUl>
             <li>
-              <a href="#">Starter</a>
+              <Link href="#">Sobre</Link>
             </li>
             <li>
-              <a href="#">Bootcamp</a>
+              <Link href="#">Nossa lojas</Link>
             </li>
             <li>
-              <a href="#">Comunidade</a>
+              <Link href="#">Contatos</Link>
             </li>
-            <li>
-              <a href="#">Blog</a>
-            </li>
+          
           </HeaderUl>
         </nav>
 
