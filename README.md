@@ -40,6 +40,7 @@ features implementadas:
 * toke refresh
 * rotas dinamicas
 * contextApi react
+* menu resposivo(mobile)
 * api fake json server
 * requisções http com axios
 
