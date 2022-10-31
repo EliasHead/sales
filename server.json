@@ -70,5 +70,23 @@
       "id": "10",
       "price": 33500
     }
+  ],
+  "purchase": [
+    {
+      "id": "1",
+      "id-car": "1"
+    },
+    {
+      "id-car": "2",
+      "id": "JO3MMfX"
+    },
+    {
+      "id-car": "2",
+      "id": "lGPZGXt"
+    },
+    {
+      "id-car": "4",
+      "id": "rMSracT"
+    }
   ]
 }

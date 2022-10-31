@@ -1,6 +1,6 @@
 import { CarContainer } from "./styles";
 import Image from "next/image";
-import { useContext, useEffect, useState } from "react";
+import { MouseEventHandler, useContext, useEffect, useState } from "react";
 import { api } from "../../services/api";
 import { useRouter } from 'next/router'
 import { formatCurrency } from "../../utils/formatCurrency";
@@ -22,10 +22,15 @@ export default function Car() {
 
   const { cars } = useContext(CarConstext)
 
-  console.log('cars:', cars, typeof (cars))
 
   const car = cars.filter((car => car.id === id))
-  console.log('car', car)
+
+  function addSales(props: string) {
+    api
+    .post('http://localhost:3332/purchase', {
+      "id-car": props,
+    })
+  }
 
   return (
     <ProductContainer>
@@ -39,7 +44,7 @@ export default function Car() {
             <h1 key={car.id}>{car.name}</h1>
             <span>{car.marca}</span>
             <p>{formatCurrency(car.price)}</p>
-            <button>Comprar</button>
+            <button onClick={() => addSales(car.id)}>Comprar</button>
           </ProductDetails>
         </>
       ))}
