@@ -39,14 +39,16 @@ features implementadas:
 * autenticação jwt
 * toke refresh
 * rotas dinamicas
-* contextApi react
+* contextApi React
+* Server Side Redering
+* Static Generation
+* Icremental Static Regeneration
 * menu resposivo(mobile)
 * api fake json server
 * requisções http com axios
 
-features a ser implemtadas:
+features a ser implementadas:
 * cadastro de usuarios
-* SSR
 * cadastro de vendas
 * date piker pra salvar data
 

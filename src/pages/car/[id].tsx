@@ -1,11 +1,8 @@
-import { CarContainer } from "./styles";
+import { GetStaticProps, GetStaticPaths } from 'next'
 import Image from "next/image";
-import { MouseEventHandler, useContext, useEffect, useState } from "react";
 import { api } from "../../services/api";
 import { useRouter } from 'next/router'
 import { formatCurrency } from "../../utils/formatCurrency";
-import { CarConstext, CarProvider } from "../../context/CarContext";
-import { Key } from "phosphor-react";
 import { ImageContainer, ProductContainer, ProductDetails } from "../../styles/pages/car";
 
 type Car = {
@@ -16,27 +13,25 @@ type Car = {
   price: number
 }
 
-export default function Car() {
+type Cars = {
+  cars: Car[]
+}
+
+export default function Car({ cars }: Cars) {
   const { query } = useRouter()
   const id = query.id
 
-  const { cars } = useContext(CarConstext)
-
-
-  const car = cars.filter((car => car.id === id))
-
   function addSales(props: string) {
     api
-    .post('http://localhost:3332/purchase', {
-      "id-car": props,
-    })
+      .post('http://localhost:3332/purchase', {
+        "id-car": props,
+      })
   }
 
   return (
     <ProductContainer>
       {cars.filter(item => item.id === id).map(car => (
         <>
-
           <ProductDetails>
             <ImageContainer>
               <Image src={car.imgUrl} alt="" layout="fill" />
@@ -50,4 +45,28 @@ export default function Car() {
       ))}
     </ProductContainer>
   )
+}
+
+export const getStaticProps: GetStaticProps = async () => {
+  const res = await api.get('http://localhost:3332/cars')
+  const cars = res.data
+
+  return {
+    props: {
+      cars,
+    },
+
+    revalidate: 10, // In seconds
+  }
+}
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const res = await api.get('http://localhost:3332/cars')
+  const cars = res.data
+
+  const paths = cars.map((car: Car) => ({
+    params: { id: car.id },
+  }))
+
+  return { paths, fallback: 'blocking' }
 }
